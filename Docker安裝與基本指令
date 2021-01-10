@@ -27,3 +27,5 @@ $docker ps -a
 刪除container 
 
 $docker rm –f (代碼) 
+
+![image](https://github.com/110610531/Docker-and-Kubernets/blob/main/messageImage_1610195424149.jpg)
