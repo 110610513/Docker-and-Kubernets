@@ -14,4 +14,4 @@
 
 執行httpd 
 
-#docker run -itd --name myweb -v /myweb:/usr/local/apache2/htdocs -p 8082:80 httpd 
+#docker run -itd --name myweb -v /myweb:/usr/local/apache2/htdocs -p 8082:80 httpd
