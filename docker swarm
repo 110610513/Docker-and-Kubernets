@@ -1,0 +1,41 @@
+Docker swarm 
+
+Docker swarm教學: https://github.com/twtrubiks/docker-swarm-tutorial#docker-machine-%E6%95%99%E5%AD%B8 
+
+ 
+
+Visualizer安裝指令:  
+
+##docker pull dockersamples/visualizer 
+
+##docker run -itd -p 8888:8080 -e HOST=192.168.157.136  -e PORT=8080 -v /var/run/docker.sock:/var/run/docker.sock --name visualizer dockersamples/visualizer 
+
+沒有visualizer的指令: 
+
+## docker service ps myweb 
+
+使用docker swarm打開http: 
+
+##docker service create --name [name] -p 8880:80 httpd 
+
+增加服務器: 
+
+## docker service scale webserver=2 
+
+滾動更新: 
+
+##docker service create --name web4 --replicas 3 -p 8004:80 httpd:2.4.43 
+
+##docker service update --image httpd:2.4.46 web4 
+
+Global mode: 
+
+##docker service create --mode global --name myweb1 -p 8005:80 httpd 
+
+Replicas: 
+
+##docker service create –replicas 3 --name myweb2 -p 8004:80 httpd 
+
+回滾: 
+
+##docker service update --rollback web4 
