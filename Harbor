@@ -1,0 +1,47 @@
+Harbor
+
+下載harbor
+
+wget http://csie.nqu.edu.tw/smallko/harbor1.9.0.tgz
+
+tar -zxvf harbor1.9.0.tgz
+
+cd harbor
+
+nano harbor.yml
+
+把hostname改成自己的ip,密碼改成12345
+
+./install.sh
+
+成功之後進入他給你的網址
+
+登入不了的話要去修改daemon.json
+
+nano /etc/docker/daemon.json
+
+內容
+
+{ 
+"insecure-registries":["192.168.56.105"] 
+}
+
+重啟daemon.json和docker
+
+systemctl daemon-reload
+
+systemctl restart docker.service
+
+docker-compose down
+
+docker-compose up -d
+
+登入harbor
+
+docker login 192.168.56.109
+
+把鏡像傳到harbor
+
+docker tag d12 192.168.56.105/library/httpd:1.0
+
+docker push 192.168.56.105/library/httpd:1.0
