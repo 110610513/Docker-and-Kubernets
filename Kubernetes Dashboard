@@ -1,0 +1,27 @@
+Kubernetes Dashboard 
+
+1.下載kubernetes-dashboard.yaml 
+
+#wget https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml 
+
+2.修改port 
+
+# nano kubernetes-dashboard.yaml 
+
+把 type改成Nodeport port改成30310
+
+3.部屬 kubernetes-dashboard.yaml和 admin-role.yaml 
+
+# kubectl apply -f kubernetes-dashboard.yaml 
+
+# kubectl apply -f admin-role.yaml 
+
+4.取得token 
+
+# kubectl -n kube-system describe secret $(kubectl -n      kube-system get secret | grep admin | awk '{print $1}') | grep token: | awk -F : '{print $2}' | xargs echo 
+
+5.login 
+
+# https://192.168.56.105(自己主機的ip)/#!/login 
+
+6.把token複製貼上去 
