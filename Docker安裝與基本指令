@@ -1,0 +1,29 @@
+# Docker安裝與基本指令 
+
+https://docs.docker.com/engine/install/centos/   跟著網站做就可以了喔。 
+
+ 
+
+開始啟動docker 
+
+$systemctl start docker  
+
+要從docker hub 上下載images的話要登陸 
+
+$docker login 
+
+下載images 
+
+$docker pull 
+
+執行 
+
+$docker run  -d –name(檔案名稱) -p 8080:80 httpd(images檔) 
+
+查看container相關的內容 
+
+$docker ps -a 
+
+刪除container 
+
+$docker rm –f (代碼) 
